@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 20:21:44 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/19 22:19:26 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/20 11:50:05 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_write_hexa(unsigned long n, char *str, int *ptr, int ca)
 
 void	ft_print_hexa(unsigned long n, char *str, int *ptr, int ca)
 {
-	if (n / 16 = 0)
+	if (n / 16 == 0)
 		ft_write_hexa(n % 16, str, ptr, ca);
 	else
 	{
