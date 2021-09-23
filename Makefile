@@ -25,7 +25,7 @@ LIBFT_MAKE	=	$(MAKE) -C $(LIBFT_PATH)
 all:	$(NAME)
 
 $(NAME):	$(SRCS_OBJS) libftmake
-			$(LM) $(NAME) $(SRCS_OBJS) $(LIBFT_OBJS)
+			$(LM) $(NAME) $(SRCS_OBJS) $(LIBFT_PATH)$(LIBFT)
 
 libftmake:
 			$(LIBFT_MAKE)
