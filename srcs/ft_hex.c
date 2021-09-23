@@ -38,7 +38,7 @@ void	ft_case_p(va_list argp, int *ptr)
 	
 	i = (unsigned long)va_arg(argp, void *);
 	ft_putstr_fd("0x", 1);
-	ft_print_hexa(i, "abcedf", ptr, 0);
+	ft_print_hexa(i, "abcdef", ptr, 0);
 	*ptr += 2;
 }
 
