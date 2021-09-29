@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 20:21:44 by mbucci            #+#    #+#             */
-/*   Updated: 2021/09/20 11:50:05 by mbucci           ###   ########.fr       */
+/*   Updated: 2021/09/24 00:20:05 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_print_hexa(unsigned long n, char *str, int *ptr, int ca)
 void	ft_case_p(va_list argp, int *ptr)
 {
 	unsigned long	i;
-	
+
 	i = (unsigned long)va_arg(argp, void *);
 	ft_putstr_fd("0x", 1);
 	ft_print_hexa(i, "abcdef", ptr, 0);
