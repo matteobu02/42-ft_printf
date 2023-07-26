@@ -1,42 +1,43 @@
 NAME	=	libftprintf.a
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -I $(INCLUDE)
+SRCDIR	=	./src/
+OBJDIR	=	./obj/
+INCLUDE	=	./include/
+AR		=	ar rc
 
-LIBFT	=	libft.a
+SRC		=	ft_printf.c	\
+			ft_hex.c	\
+			ft_nums.c	\
+			ft_strs.c
 
-LIBFT_PATH	=	libft/
-
-SRCS	=	./srcs/ft_printf.c	\
-			./srcs/ft_hex.c	\
-			./srcs/ft_nums.c	\
-			./srcs/ft_strs.c	\
-
-SRCS_OBJS	=	$(SRCS:.c=.o)
-
-CC	=	gcc
-
-FLAGS	=	-Wall -Wextra -Werror
-
-LM	=	ar rc
-
-LIBFT_OBJS	=	$(LIBFT_PATH)*.o
-
-LIBFT_MAKE	=	$(MAKE) -C $(LIBFT_PATH)
+OBJ		=	${addprefix $(OBJDIR), $(SRC:%.c=%.o)}
 
 
-all:	$(NAME)
+# ===== #
 
-$(NAME):	$(SRCS_OBJS) libftmake
-				$(LM) $(NAME) $(SRCS_OBJS) $(LIBFT_OBJS)
+
+all:		$(NAME)
+
+$(NAME):	$(OBJDIR) $(OBJ) libftmake
+			$(AR) $(NAME) $(OBJ) libft/libft.a
 
 libftmake:
-			$(LIBFT_MAKE)
+			make -C libft/
 
 clean:
-			make -C $(LIBFT_PATH) clean
-			rm -rf $(SRCS_OBJS) 
+			rm -rf $(OBJDIR)
 
 fclean:		clean
-			rm -rf $(NAME) $(LIBFT_PATH)$(LIBFT)
+			rm -rf $(NAME)
+			make -C libft/ fclean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+$(OBJDIR)%.o:	$(SRCDIR)%.c
+				$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR):
+				@mkdir -p $(OBJDIR)
+
+.PHONY:		all clean fclean re libftmake
